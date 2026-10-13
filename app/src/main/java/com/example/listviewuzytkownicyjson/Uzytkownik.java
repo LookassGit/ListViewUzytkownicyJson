@@ -1,8 +1,17 @@
 package com.example.listviewuzytkownicyjson;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Uzytkownik {
-    private String nazwa, nazwisko, email;
+    @SerializedName("firstName")
+    private String nazwa;
+    @SerializedName("secondName")
+    private String nazwisko;
+    @SerializedName("email")
+    private String email;
+    @SerializedName("userId")
     private int id;
+
     public Uzytkownik(String nazwa, String nazwisko, String email, int id) {
         this.nazwa = nazwa;
         this.nazwisko = nazwisko;
@@ -14,31 +23,20 @@ public class Uzytkownik {
         return nazwa;
     }
 
-    public void setNazwa(String nazwa) {
-        this.nazwa = nazwa;
-    }
-
     public String getNazwisko() {
         return nazwisko;
-    }
-
-    public void setNazwisko(String nazwisko) {
-        this.nazwisko = nazwisko;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
     public int getId() {
         return id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    @Override
+    public String toString() {
+        return "Nazwa: " + nazwa + " " + nazwisko + "\nEmail: " + email + "\nId:" + id;
     }
 }
